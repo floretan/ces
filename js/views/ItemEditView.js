@@ -11,6 +11,7 @@ define([
     template: ItemEditTemplate,
     events: {
       'click label': 'showForm',
+      'submit form': 'saveNewItem',
       'click #save-new-item': 'saveNewItem',
       'click #cancel-new-item': 'hideForm',
     },
@@ -20,7 +21,9 @@ define([
     hideForm: function() {
       this.$('.add-form-details').slideUp();
     },
-    saveNewItem: function() {
+    saveNewItem: function(e) {
+      e.preventDefault();
+
       var item = new ItemModel();
 
       this.collection.unshift(item);
