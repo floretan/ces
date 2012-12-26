@@ -22,7 +22,7 @@ function(vent, Backbone, Marionette, ItemCollection, HomeView) {
     // Add the desktop.
     app.homeRegion.show(new HomeView({app: app}));
 
-    app.homeRegion.fetch();
+    app.itemCollection.fetch();
   });
 
 

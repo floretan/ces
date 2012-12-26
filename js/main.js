@@ -6,13 +6,11 @@ require.config( {
 
     // Core Libraries
     "jquery": "lib/jquery",
-    "jquerymobile": "lib/jquery.mobile-1.2.0",
     "underscore": "lib/lodash",
     'text': 'lib/text',
     "backbone": "lib/backbone",
     "marionette": "lib/backbone.marionette",
     "localStorage": "lib/backbone.localStorage-min",
-    "jqm-config": "lib/jqm-config"
   },
 
   // Sets the configuration for your third party scripts that are not AMD compatible
@@ -24,17 +22,13 @@ require.config( {
     },
     "localStorage": {
       "deps": [ "backbone"]
-    },
-    "jquerymobile": {
-      "deps": [ "jqm-config"]
     }
-
   } // end Shim Configuration
 
 } );
 
 // Includes File Dependencies
-require([ "jquery","backbone","app", "router", 'jquerymobile'], function( $, Backbone, App, Router ) {
+require([ "jquery","backbone","app", "router"], function( $, Backbone, App, Router ) {
   "use strict";
 
   //Override Marionette to use text templates instead of underscore templates.
