@@ -4,8 +4,8 @@
 
 <h3>Aujourd'hui, Theo a:</h3>
 
-<% _.each(actions, function(action) { %>
-  <a href="#" class="btn btn-success btn-large"><%- action %></a>
+<% _.each(actions, function(label, action) { %>
+  <a href="#new/<%- action %>" class="add-new-item btn btn-success btn-large"><%- label %></a>
 <% }) %>
 
 
@@ -19,5 +19,6 @@
       <li class="divider-vertical"></li>
     </ul>
   </div>
-
 </div>
+
+<div id="item-edit-region"></div>
