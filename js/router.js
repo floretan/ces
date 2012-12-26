@@ -1,6 +1,7 @@
 define([
+  "vent",
   "backbone"
-], function(Backbone) {
+], function(vent, Backbone) {
   "use strict";
 
   // Extends Backbone.Router
@@ -18,9 +19,7 @@ define([
 
       // When there is no hash bang on the url, the home method is called
       "": "home",
-
-      // When #category? is on the url, the category method is called
-      "detail": "detail",
+      "new/:action": "addNewItem",
       '*path':  'defaultRoute'
     },
 
@@ -28,7 +27,9 @@ define([
     home: function() {
 
     },
-
+    addNewItem: function(action) {
+      vent.trigger('item:add', action);
+    },
     defaultRoute: function(path) {
       console.log(path);
     }
