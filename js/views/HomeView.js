@@ -14,12 +14,18 @@ define([
     regions: {
       itemEditRegion: '#item-edit-region'
     },
-    initialize: function() {
-      this.bindTo(vent, "item:add", function(action) {
-        console.log(action);
-        var item = new ItemModel();
+    initialize: function(options) {
+      this.app = options.app;
 
-        var editView = new ItemEditView({model: item});
+      this.bindTo(vent, "item:add", function(action) {
+
+        var item = new ItemModel({
+          action: action
+        });
+
+        console.log(item);
+
+        var editView = new ItemEditView({model: item, collection: this.app.itemCollection});
 
         this.itemEditRegion.show(editView);
 

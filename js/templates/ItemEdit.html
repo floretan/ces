@@ -9,7 +9,7 @@
         <input type="text" value="<%- action %>" name="action" placeholder="Quoi?"/>
       </div>
       <div>
-        <input type="text" value="<%- time %>" name="time" placeholder="Quand?"/>
+        <input type="datetime-local" value="<%- timestamp %>" name="timestamp" placeholder="Quand?"/>
       </div>
       <div>
         <textarea name="note"></textarea>
@@ -17,7 +17,7 @@
     </form>
   </div>
   <div class="modal-footer">
-    <a href="#" class="btn">Annuler</a>
-    <a href="#" class="btn btn-primary">Ok</a>
+    <a href="#" id="cancel-new-item" class="btn">Annuler</a>
+    <a href="#" id="save-new-item" class="btn btn-primary">Ok</a>
   </div>
 </div>
