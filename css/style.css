@@ -2,3 +2,7 @@
 body {
   font-family: Handlee, Helvetica, sans-serif;
 }
+
+.item .time {
+  margin: 10px;
+}

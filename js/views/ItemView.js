@@ -4,7 +4,8 @@ define([
   'text!templates/Item.html'
 ], function (Backbone, ItemModel, ItemTemplate) {
   return Backbone.Marionette.ItemView.extend({
-    tagName: 'li',
+    tagName: 'tr',
+    className: 'item clearfix',
     template: ItemTemplate,
     events: {
       "click a.item-delete": "clear"
