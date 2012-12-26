@@ -12,36 +12,14 @@
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link href='http://fonts.googleapis.com/css?family=Handlee:400,300,700,600' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+    <link rel="stylesheet" media="screen" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/style.css"></link>
     <script data-main="js/main" src="js/lib/require.js"></script>
   </head>
   <body>
 
-  <div id="home-region" data-role="page">
+  <div id="home-region" class="container"></div>
 
-  </div>
-
-  <div id="log-view" data-role="page">
-    <div data-role="header">
-      <h1>Übersicht</h1>
-      <a href="#" data-role="button" data-icon="arrow-l">Back</a>
-    </div>
-  </div>
-
-  <div id="settings" data-role="page">
-    <div data-role="header">
-      <h1>Settings</h1>
-      <a href="#" data-role="button" data-icon="arrow-l">Back</a>
-    </div>
-
-    <div data-role="content">
-      <label for="basic">Text Input:</label>
-      <input type="text" name="name" id="basic" value=""  />
-
-      <label for="slider-1">Input slider:</label>
-      <input type="range" name="slider-1" id="slider-1" value="60" min="0" max="100" />
-    </div>
-
-  </div>
+  <div id="log-region" class="container"></div>
 </body>
 </html>

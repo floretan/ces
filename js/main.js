@@ -11,6 +11,7 @@ require.config( {
     "backbone": "lib/backbone",
     "marionette": "lib/backbone.marionette",
     "localStorage": "lib/backbone.localStorage-min",
+    "bootstrap": "lib/bootstrap"
   },
 
   // Sets the configuration for your third party scripts that are not AMD compatible
@@ -28,7 +29,7 @@ require.config( {
 } );
 
 // Includes File Dependencies
-require([ "jquery","backbone","app", "router"], function( $, Backbone, App, Router ) {
+require([ "jquery","backbone","app", "router", "bootstrap"], function( $, Backbone, App, Router ) {
   "use strict";
 
   //Override Marionette to use text templates instead of underscore templates.
@@ -52,14 +53,11 @@ require([ "jquery","backbone","app", "router"], function( $, Backbone, App, Rout
 
   window.App = App;
 
-  // Instantiates a new Backbone.js Mobile Router
-  this.router = new Router();
+  // Instantiates a new Backbone.js Router.
+  var router = new Router();
 
-  this.router.on('all', function(route, a) {
+  router.on('all', function(route, a) {
     console.log(route);
-
-    this.currentRoute = route;
-
   });
 
   // All navigation that is relative should be passed through the navigate
