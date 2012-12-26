@@ -2,9 +2,11 @@
 define(['backbone'], function (Backbone) {
   return Backbone.Model.extend({
     defaults: function() {
+      var now = new Date().getTime();
       return {
-        amount: 0,
-        title: "Coffee"
+        action: '',
+        timestamp: now,
+        comment: ''
       };
     }
   });
