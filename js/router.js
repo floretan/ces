@@ -19,16 +19,12 @@ define([
 
       // When there is no hash bang on the url, the home method is called
       "": "home",
-      "new/:action": "addNewItem",
       '*path':  'defaultRoute'
     },
 
     // Home method
     home: function() {
 
-    },
-    addNewItem: function(action) {
-      vent.trigger('item:add', action);
     },
     defaultRoute: function(path) {
       console.log(path);

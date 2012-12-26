@@ -2,10 +2,9 @@ define([
   'vent',
   'backbone',
   'marionette',
-  '../models/ItemModel',
   '../views/ItemEditView',
   'text!templates/home.html'
-], function (vent, Backbone, Marionette, ItemModel, ItemEditView, homeTemplate) {
+], function (vent, Backbone, Marionette, ItemEditView, homeTemplate) {
   "use strict";
 
   var HomeView = Backbone.Marionette.Layout.extend({
@@ -16,22 +15,11 @@ define([
     },
     initialize: function(options) {
       this.app = options.app;
+    },
+    onRender: function() {
+      var editView = new ItemEditView({collection: this.app.itemCollection});
 
-      this.bindTo(vent, "item:add", function(action) {
-
-        var item = new ItemModel({
-          action: action
-        });
-
-        console.log(item);
-
-        var editView = new ItemEditView({model: item, collection: this.app.itemCollection});
-
-        this.itemEditRegion.show(editView);
-
-        this.$('#add-item-modal').modal('show');
-
-      }, this);
+      this.itemEditRegion.show(editView);
     },
     serializeData: function() {
       return {

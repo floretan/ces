@@ -1,8 +1,37 @@
 
-body {
+h1, h2, h3, h4, h5, h6, h7 {
   font-family: Handlee, Helvetica, sans-serif;
 }
 
+.item .item-status {
+  width: 150px;
+}
 .item .time {
   margin: 10px;
+}
+
+.category-toilet {
+  background: #eb3;
+}
+.category-progress {
+  background: #00c;
+}
+.category-food {
+  background: #090;
+}
+.category-sleep {
+
+}
+.category-sick {
+  background: #900;
+}
+
+.btn-group label.btn input {
+  display: none;
+}
+.add-form-details {
+  display: none;
+}
+#item-edit-region .btn-group {
+  margin-bottom: 10px;
 }
