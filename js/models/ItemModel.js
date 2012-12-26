@@ -4,9 +4,9 @@ define(['backbone'], function (Backbone) {
     defaults: function() {
       var now = new Date().getTime();
       return {
-        action: '',
+        title: '',
         timestamp: now,
-        comment: ''
+        note: ''
       };
     }
   });
