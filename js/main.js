@@ -8,7 +8,9 @@ require.config( {
     "jquery": "lib/jquery",
     "jquerymobile": "lib/jquery.mobile-1.2.0",
     "underscore": "lib/lodash",
+    'text': 'lib/text',
     "backbone": "lib/backbone",
+    "marionette": "lib/backbone.marionette",
     "localStorage": "lib/backbone.localStorage-min",
     "jqm-config": "lib/jqm-config"
   },
@@ -16,9 +18,9 @@ require.config( {
   // Sets the configuration for your third party scripts that are not AMD compatible
   shim: {
 
-    "backbone": {
-      "deps": [ "underscore", "jquery" ],
-      "exports": "Backbone"  //attaches "Backbone" to the window object
+    'backbone': {
+      'deps': [ 'underscore', 'jquery' ],
+      'exports': 'Backbone'  //attaches 'Backbone' to the window object
     },
     "localStorage": {
       "deps": [ "backbone"]
@@ -32,7 +34,29 @@ require.config( {
 } );
 
 // Includes File Dependencies
-require([ "jquery","backbone","router", 'jquerymobile'], function( $, Backbone, Router ) {
+require([ "jquery","backbone","app", "router", 'jquerymobile'], function( $, Backbone, App, Router ) {
+  "use strict";
+
+  //Override Marionette to use text templates instead of underscore templates.
+  Backbone.Marionette.TemplateCache.prototype.loadTemplate = function(templateId) {
+    // Marionette expects 'templateId' to be the ID of a DOM element.
+    // But with RequireJS, templateId is actually the full text of the template.
+    var template = templateId;
+
+    // Make sure we have a template before trying to compile it
+    if (!template || template.length === 0){
+      var msg = "Could not find template: '" + templateId + "'";
+      var err = new Error(msg);
+      err.name = 'NoTemplateError';
+      throw err;
+    }
+
+    return template;
+  };
+
+  App.start();
+
+  window.App = App;
 
   // Instantiates a new Backbone.js Mobile Router
   this.router = new Router();
