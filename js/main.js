@@ -23,7 +23,10 @@ require.config( {
     },
     "localStorage": {
       "deps": [ "backbone"]
-    }
+    },
+    'bootstrap': {
+      'deps': ['jquery']
+    },
   } // end Shim Configuration
 
 } );
