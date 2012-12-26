@@ -11,7 +11,8 @@ require.config( {
     "backbone": "lib/backbone",
     "marionette": "lib/backbone.marionette",
     "localStorage": "lib/backbone.localStorage-min",
-    "bootstrap": "lib/bootstrap"
+    "bootstrap": "lib/bootstrap",
+    "timeago": "lib/jquery.timeago"
   },
 
   // Sets the configuration for your third party scripts that are not AMD compatible
@@ -27,12 +28,16 @@ require.config( {
     'bootstrap': {
       'deps': ['jquery']
     },
-  } // end Shim Configuration
+    'timeago': {
+      'deps': ['jquery']
+    }
+  }, // end Shim Configuration
+  deps: ['timeago', 'bootstrap']
 
 } );
 
 // Includes File Dependencies
-require([ "jquery","backbone","app", "router", "bootstrap"], function( $, Backbone, App, Router ) {
+require([ "jquery","backbone","app", "router"], function( $, Backbone, App, Router ) {
   "use strict";
 
   //Override Marionette to use text templates instead of underscore templates.
