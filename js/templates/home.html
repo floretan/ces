@@ -2,15 +2,14 @@
   <h1>Cry Eat Sleep</h1>
 </div>
 
-  <h3>Aujourd'hui, Theo a:</h3>
-  <a href="#" class="btn btn-success">Dormi</a>
-  <a href="#" class="btn btn-success">Mangé</a>
-  <a href="#" class="btn btn-success">Souri</a>
-  <a href="#" class="btn btn-success">Fait caca</a>
-  <a href="#" class="btn btn-success">Fait pipi</a>
+<h3>Aujourd'hui, Theo a:</h3>
+
+<% _.each(actions, function(action) { %>
+  <a href="#" class="btn btn-success btn-large"><%- action %></a>
+<% }) %>
 
 
-<div class="navbar navbar-fixed-bottom">
+<div class="navbar navbar-inverse navbar-fixed-bottom">
   <div class="navbar-inner">
     <ul class="nav">
       <li class="divider-vertical"></li>
