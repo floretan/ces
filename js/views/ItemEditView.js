@@ -13,7 +13,7 @@ define([
       'click #cancel-new-item': 'cancelNewItem',
     },
     saveNewItem: function() {
-      this.collection.push(this.model);
+      this.collection.unshift(this.model);
       this.model.set({
         action: this.$('[name=action]').val(),
         timestamp: this.$('[name=timestamp]').val(),
