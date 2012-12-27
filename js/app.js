@@ -34,7 +34,7 @@ function(vent, Backbone, Marionette, ItemCollection, HomeView, LogView) {
   $('body').bind('ajaxError', function(event, XMLHttpRequest, ajaxOptions) {
     if (XMLHttpRequest.status === 401) {
       console.log(XMLHttpRequest.responseText);
-      window.location = '../user?destination=/main';
+      window.location = '../user?destination=/app';
     }
   });
 
