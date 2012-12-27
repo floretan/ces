@@ -6,7 +6,8 @@ define(['backbone'], function (Backbone) {
       return {
         title: '',
         timestamp: now,
-        note: ''
+        note: '',
+        type: 'log_item'
       };
     }
   });
