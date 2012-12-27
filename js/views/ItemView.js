@@ -22,10 +22,10 @@ define([
     serializeData: function() {
       var data = this.model.toJSON();
       // The displayed time.
-      data.time = $.timeago(parseInt(data.timestamp));
+      data.time = $.timeago(parseInt(data.created * 1000));
 
       // The ISO timestamp used by timeago.
-      data.isoTimestamp = new Date(parseInt(data.timestamp)).toISOString();
+      data.isoTimestamp = new Date(parseInt(data.created * 1000)).toISOString();
 
       return data;
     }
