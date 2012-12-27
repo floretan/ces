@@ -1,8 +1,9 @@
 define([
   'backbone',
+  'marionette',
   '../models/ItemModel',
   'text!templates/Item.html'
-], function (Backbone, ItemModel, ItemTemplate) {
+], function (Backbone, Marionette, ItemModel, ItemTemplate) {
   return Backbone.Marionette.ItemView.extend({
     tagName: 'tr',
     className: 'item clearfix',
