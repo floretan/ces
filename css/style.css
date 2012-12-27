@@ -37,8 +37,8 @@ h1, h2, h3, h4, h5, h6, h7 {
 .category-sleep {
 
 }
-.btn-sick {
-  color: #900;
+.category-sick {
+  background: #900;
 }
 
 .btn-toilet, .btn-toilet.active {
