@@ -3,19 +3,19 @@ h1, h2, h3, h4, h5, h6, h7 {
   font-family: Handlee, Helvetica, sans-serif;
 }
 
-body {
-  margin-top: 120px;
-}
-
 #home-region {
   position: fixed !important;
   top: 0;
   width: 100%;
-  min-height: 100px;
   padding: 0 20px;
   background: #fff;
   box-shadow: 0 0 10px rgba(0,0,0, 0.3);
   z-index: 100;
+}
+
+#log-region {
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .item .item-status {
@@ -37,8 +37,24 @@ body {
 .category-sleep {
 
 }
-.category-sick {
-  background: #900;
+.btn-sick {
+  color: #900;
+}
+
+.btn-toilet, .btn-toilet.active {
+  color: #eb3;
+}
+.btn-progress, .btn-progress.active {
+  color: #00c;
+}
+.btn-food, .btn-food.active {
+  color: #090;
+}
+.btn-sleep, .btn-sleep.active {
+
+}
+.btn-sick, .btn-sick.active {
+  color: #900;
 }
 
 .btn-group label.btn input {
@@ -49,7 +65,7 @@ body {
   margin-bottom: 20px;
 }
 #item-edit-region .btn-group {
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
 #item-edit-region form {
