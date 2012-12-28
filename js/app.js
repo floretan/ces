@@ -4,8 +4,9 @@ define([
   "marionette",
   "collections/ItemCollection",
   "views/HomeView",
-  "views/LogView"],
-function(vent, Backbone, Marionette, ItemCollection, HomeView, LogView) {
+  "views/LogView",
+  "views/LoginView"],
+function(vent, Backbone, Marionette, ItemCollection, HomeView, LogView, LoginView) {
   "use strict";
 
   //Instanciate our Application.
@@ -14,7 +15,8 @@ function(vent, Backbone, Marionette, ItemCollection, HomeView, LogView) {
   // Define the main app regions.
   app.addRegions({
     homeRegion: "#home-region",
-    logRegion: "#log-region"
+    logRegion: "#log-region",
+    loginRegion: "#login-region"
   });
 
   app.addInitializer(function(){
@@ -28,15 +30,18 @@ function(vent, Backbone, Marionette, ItemCollection, HomeView, LogView) {
     app.logRegion.show(new LogView({collection: app.itemCollection}));
 
     app.itemCollection.fetch();
+
+    $('body').bind('ajaxError', function(event, XMLHttpRequest, ajaxOptions) {
+      if (XMLHttpRequest.status === 401) {
+        console.log(XMLHttpRequest.responseText);
+
+        app.loginRegion.show(new LoginView());
+      }
+    });
   });
 
 
-  $('body').bind('ajaxError', function(event, XMLHttpRequest, ajaxOptions) {
-    if (XMLHttpRequest.status === 401) {
-      console.log(XMLHttpRequest.responseText);
-      window.location = '../user?destination=/app';
-    }
-  });
+
 
   return app;
 });
