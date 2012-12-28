@@ -4,7 +4,7 @@ define(['backbone', '../models/ItemModel', 'localStorage'], function (Backbone, 
 //    localStorage: new Backbone.LocalStorage("ItemCollection"),
     url: "http://ces.happypixels.com/api/log_item",
     comparator: function(todo) {
-      return - todo.get('timestamp');
+      return - todo.get('created');
     }
   });
 })

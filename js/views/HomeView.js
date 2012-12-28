@@ -17,6 +17,7 @@ define([
       this.app = options.app;
 
       $(window).resize(this.onShow);
+      this.bindTo(vent, 'add-form:reset', this.onRender, this);
     },
     onRender: function() {
       var editView = new ItemEditView({collection: this.app.itemCollection});

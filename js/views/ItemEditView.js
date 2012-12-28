@@ -26,13 +26,16 @@ define([
 
       var item = new ItemModel();
 
-      this.collection.unshift(item);
       item.set({
         category: this.$('[name=category]:checked').val(),
         note: this.$('[name=note]').val()
       });
 
       item.save();
+
+      item.set({created: new Date().getTime()/1000});
+      this.collection.unshift(item);
+
       this.hideForm();
       vent.trigger('add-form:reset');
     }

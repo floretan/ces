@@ -1,11 +1,10 @@
 
 define(['backbone'], function (Backbone) {
   return Backbone.Model.extend({
+    urlRoot: "http://ces.happypixels.com/api/log_item",
     defaults: function() {
-      var now = new Date().getTime();
       return {
         title: '',
-        timestamp: now,
         note: '',
         type: 'log_item'
       };
