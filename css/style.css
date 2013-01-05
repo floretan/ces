@@ -72,3 +72,8 @@ h1, h2, h3, h4, h5, h6, h7 {
   text-align: center;
   margin-bottom: 0;
 }
+
+#item-edit-region textarea {
+  margin-bottom: 0;
+  resize: none;
+}
