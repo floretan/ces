@@ -16,7 +16,8 @@ function(vent, Backbone, Marionette, ItemCollection, HomeView, LogView, LoginVie
   app.addRegions({
     homeRegion: "#home-region",
     logRegion: "#log-region",
-    loginRegion: "#login-region"
+    loginRegion: "#login-region",
+    footerRegion: "#footer-region"
   });
 
   app.addInitializer(function(){
