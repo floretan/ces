@@ -1,6 +1,9 @@
 
-h1, h2, h3, h4, h5, h6, h7 {
+.brand {
   font-family: Handlee, Helvetica, sans-serif;
+}
+.navbar .brand {
+  margin-left: -10px;
 }
 
 #home-region {
