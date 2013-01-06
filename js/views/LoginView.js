@@ -14,12 +14,15 @@ define([
     },
     doLogin: function(e) {
       e.preventDefault();
-//$.ajaxSetup({
-//  contentType: 'json',
-//});
       $.post('http://ces.happypixels.com/api/user/login', {
         username: this.$('[name=username]').val(),
         password: this.$('[name=password]').val(),
+      }).success(function(jqXHR, textStatus, data) {
+        vent.trigger('login:success');
+      }).error(function(jqXHR, textStatus, data) {
+        console.log(jqXHR);
+        console.log(textStatus);
+        console.log(data);
       });
     }
   });
