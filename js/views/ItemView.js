@@ -2,8 +2,9 @@ define([
   'backbone',
   'marionette',
   '../models/ItemModel',
+  'moment',
   'text!templates/Item.html'
-], function (Backbone, Marionette, ItemModel, ItemTemplate) {
+], function (Backbone, Marionette, ItemModel, moment, ItemTemplate) {
   return Backbone.Marionette.ItemView.extend({
     tagName: 'tr',
     className: 'item clearfix',
@@ -15,17 +16,10 @@ define([
       e.preventDefault();
       this.model.destroy();
     },
-    onShow: function() {
-      // @todo: somehow this doesn't work as it should.
-      this.$('time.timeago').timeago();
-    },
     serializeData: function() {
       var data = this.model.toJSON();
       // The displayed time.
-      data.time = $.timeago(parseInt(data.created * 1000));
-
-      // The ISO timestamp used by timeago.
-      data.isoTimestamp = new Date(parseInt(data.created * 1000)).toISOString();
+      data.time = moment.unix(data.created).calendar();
 
       return data;
     }

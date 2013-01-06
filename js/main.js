@@ -12,7 +12,8 @@ require.config( {
     "marionette": "lib/backbone.marionette",
     "localStorage": "lib/backbone.localStorage-min",
     "bootstrap": "lib/bootstrap",
-    "timeago": "lib/jquery.timeago"
+    "timeago": "lib/jquery.timeago",
+    "moment": "lib/moment.min"
   },
 
   // Sets the configuration for your third party scripts that are not AMD compatible
