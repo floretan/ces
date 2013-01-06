@@ -15,17 +15,11 @@ define([
     },
     initialize: function(options) {
       this.app = options.app;
-
-      $(window).resize(this.onShow);
-      this.bindTo(vent, 'add-form:reset', this.onRender, this);
     },
     onRender: function() {
       var editView = new ItemEditView({collection: this.app.itemCollection});
 
       this.itemEditRegion.show(editView);
-    },
-    onShow: function() {
-      $('body').css('margin-top', $('#home-region').height() - 1);
     },
     serializeData: function() {
       return {
