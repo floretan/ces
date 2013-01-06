@@ -12,7 +12,6 @@ require.config( {
     "marionette": "lib/backbone.marionette",
     "localStorage": "lib/backbone.localStorage-min",
     "bootstrap": "lib/bootstrap",
-    "timeago": "lib/jquery.timeago",
     "moment": "lib/moment.min"
   },
 
@@ -28,12 +27,9 @@ require.config( {
     },
     'bootstrap': {
       'deps': ['jquery']
-    },
-    'timeago': {
-      'deps': ['jquery']
     }
   }, // end Shim Configuration
-  deps: ['timeago', 'bootstrap']
+  deps: ['bootstrap']
 
 } );
 
