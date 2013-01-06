@@ -1,4 +1,6 @@
-
+body {
+  margin-top: 40px;
+}
 .brand {
   font-family: Handlee, Helvetica, sans-serif;
 }
@@ -79,4 +81,8 @@
 #item-edit-region textarea {
   margin-bottom: 0;
   resize: none;
+}
+
+#login-form input {
+  display: block;
 }
