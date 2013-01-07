@@ -18,8 +18,16 @@ define([
     },
     serializeData: function() {
       var data = this.model.toJSON();
-      // The displayed time.
-      data.time = moment.unix(data.created).calendar();
+
+      var created = moment.unix(data.created);
+
+      // Display time ago for the past 12 hours, or calendar format for older items.
+      if (moment().diff(created, 'hours') > 12) {
+        data.time = created.calendar();
+      }
+      else {
+        data.time = created.fromNow();
+      }
 
       return data;
     }
