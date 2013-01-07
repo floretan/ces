@@ -16,7 +16,11 @@ define([
       'click #cancel-new-item': 'hideForm',
     },
     showForm: function() {
-      this.$('.add-form-details').slideDown();
+      this.$('.add-form-details').slideDown({
+        complete: function() {
+          $(this).find('[name=note]').focus();
+        }
+      });
     },
     hideForm: function() {
       this.$('.add-form-details').slideUp();
