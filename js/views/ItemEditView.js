@@ -13,7 +13,7 @@ define([
       'click label': 'showForm',
       'submit form': 'saveNewItem',
       'click #save-new-item': 'saveNewItem',
-      'click #cancel-new-item': 'hideForm',
+      'focusout form': 'hideForm',
     },
     showForm: function() {
       this.$('.add-form-details').slideDown({
@@ -22,8 +22,15 @@ define([
         }
       });
     },
-    hideForm: function() {
-      this.$('.add-form-details').slideUp();
+    hideForm: function(e) {
+      var v = this;
+      setTimeout(function() {
+        v.$('.add-form-details').slideUp({
+          complete: function() {
+            v.render();
+          }
+        });
+      }, 100);
     },
     saveNewItem: function(e) {
       e.preventDefault();
@@ -35,13 +42,15 @@ define([
         note: this.$('[name=note]').val()
       });
 
-      item.save();
+      var v = this;
+      item.on("sync", function() {
+        v.hideForm();
+      });
+
+      item.save({wait: true});
 
       item.set({created: new Date().getTime()/1000});
       this.collection.unshift(item);
-
-      this.hideForm();
-      vent.trigger('add-form:reset');
     }
   });
 
