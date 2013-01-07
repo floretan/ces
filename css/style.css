@@ -8,6 +8,10 @@ body {
   margin-left: -10px;
 }
 
+.navbar-fixed-bottom {
+  background: #f2f2f2;
+}
+
 #home-region {
   position: fixed !important;
   top: 0;
@@ -67,7 +71,10 @@ body {
 }
 .add-form-details {
   display: none;
-  margin-bottom: 20px;
+  margin: 10px 0;
+}
+.add-form-details .btn {
+  margin-top: 0;
 }
 #item-edit-region .btn-group {
   margin: 10px 0;
