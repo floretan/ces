@@ -9,10 +9,14 @@ define([
   var ToolbarView = Backbone.Marionette.ItemView.extend({
     template: ToolbarTemplate,
     events: {
+      'click #toolbar-refresh-button': 'refresh',
       'click #toolbar-user-logout': 'logout'
     },
     initialize: function(options) {
       this.app = options.app;
+    },
+    refresh: function() {
+      this.app.itemCollection.fetch();
     },
     logout: function() {
       vent.trigger('user:logout');
