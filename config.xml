@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.phonegap.hello-world"
+        version   = "2.0.0">
+    <name>Cry Eat Sleep</name>
+
+    <description>
+        A simple app to track your baby's activities.
+    </description>
+
+    <author href="http://happypixels.com" email="florian@happypixels.com">
+        Florian Loretan - Happy Pixels
+    </author>
+
+    <feature name="http://api.phonegap.com/1.0/device" />
+
+    <preference name="phonegap-version" value="2.1.0" />
+    <preference name="orientation"      value="portrait" />
+    <preference name="target-device"    value="universal" />
+    <preference name="fullscreen"       value="false" />
+
+    <preference name="splash-screen-duration" value="0" />
+    <preference name="permissions" value="none"/>
+</widget>
