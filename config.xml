@@ -20,6 +20,6 @@
     <preference name="target-device"    value="universal" />
     <preference name="fullscreen"       value="false" />
 
-    <preference name="splash-screen-duration" value="0" />
+    <preference name="splash-screen-duration" value="1000" />
     <preference name="permissions" value="none"/>
 </widget>
