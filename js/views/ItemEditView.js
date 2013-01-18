@@ -13,16 +13,20 @@ define([
       'click label': 'showForm',
       'submit form': 'saveNewItem',
       'click #save-new-item': 'saveNewItem',
-      'focusout form': 'hideForm',
     },
     showForm: function() {
+      var v = this;
       this.$('.add-form-details').slideDown({
         complete: function() {
           $(this).find('[name=note]').focus();
+          $('html').click(function() {
+            v.hideForm()
+          });
         }
       });
     },
     hideForm: function(e) {
+      $('html').unbind('click');
       var v = this;
       setTimeout(function() {
         v.$('.add-form-details').slideUp({
