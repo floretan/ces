@@ -1,16 +1,20 @@
 define([
+  'vent',
   'backbone',
   'marionette',
   '../models/ItemModel',
   'moment',
   'text!templates/Item.html'
-], function (Backbone, Marionette, ItemModel, moment, ItemTemplate) {
+], function (vent, Backbone, Marionette, ItemModel, moment, ItemTemplate) {
   return Backbone.Marionette.ItemView.extend({
     tagName: 'tr',
     className: 'item clearfix',
     template: ItemTemplate,
     events: {
       "click a.item-delete": "clear"
+    },
+    initialize: function() {
+      this.bindTo(vent, 'timer:minute', this.render);
     },
     clear: function(e) {
       e.preventDefault();

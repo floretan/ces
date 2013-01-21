@@ -48,6 +48,10 @@ function(vent, Backbone, Marionette, ItemCollection, HomeView, LogView, ToolbarV
       $(app.loginRegion.el).hide();
       app.loginRegion.close();
     });
+
+    setInterval(function() {
+      vent.trigger('timer:minute');
+    }, 60*1000);
   });
 
   return app;

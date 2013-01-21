@@ -10,9 +10,6 @@ define([
     itemView: ItemView,
     initialize: function() {
       this.bindTo(this.collection, 'change', this.render);
-    },
-    onShow: function() {
-      setInterval(this.render,60*1000);
     }
   });
 
