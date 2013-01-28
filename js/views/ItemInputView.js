@@ -69,6 +69,7 @@ define([
 
       this.$('input[name=category]').val(category.attr('data-category'));
       this.$('#category-button').html(category.html());
+      this.$('#category-options').hide();
     },
     appendHtml: function(collectionView, itemView, index){
       collectionView.$("#note-suggestions").append(itemView.el);
@@ -86,14 +87,13 @@ define([
       var v = this;
       item.on("sync", function() {
         v.hideForm();
+        v.clearForm();
       });
 
       item.save({wait: true});
 
       item.set({created: new Date().getTime()/1000});
       this.app.itemCollection.unshift(item);
-
-      this.clearForm();
     },
     clearForm: function() {
       this.render();
