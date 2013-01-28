@@ -3,12 +3,11 @@ define([
   "backbone",
   "marionette",
   "collections/ItemCollection",
-  "views/HomeView",
   "views/LogView",
   "views/ToolbarView",
   "views/LoginView",
   "views/ItemInputView"],
-function(vent, Backbone, Marionette, ItemCollection, HomeView, LogView, ToolbarView, LoginView, ItemInputView) {
+function(vent, Backbone, Marionette, ItemCollection, LogView, ToolbarView, LoginView, ItemInputView) {
   "use strict";
 
   //Instanciate our Application.
@@ -17,7 +16,6 @@ function(vent, Backbone, Marionette, ItemCollection, HomeView, LogView, ToolbarV
   // Define the main app regions.
   app.addRegions({
     toolbarRegion: "#toolbar-region",
-    homeRegion: "#home-region",
     itemInputRegion: "#item-input-region",
     logRegion: "#log-region",
     loginRegion: "#login-region",
@@ -29,9 +27,6 @@ function(vent, Backbone, Marionette, ItemCollection, HomeView, LogView, ToolbarV
     app.itemCollection = new ItemCollection();
 
     app.toolbarRegion.show(new ToolbarView({app: app}));
-
-    // Add the main screen.
-    app.homeRegion.show(new HomeView({app: app}));
 
     app.itemInputRegion.show(new ItemInputView({app: app}));
 
