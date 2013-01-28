@@ -1,0 +1,21 @@
+<form>
+            <div class="item-input-basic">
+              <input type="text" name="note" autocomplete="off"/>
+              <input type="hidden" name="category" />
+              <button id="category-button" type="button" class="btn"><i class="icon-tag"></i></button>
+              <button id="time-button" type="button" class="btn"><i class="icon-time"></i></button>
+              <button id="save-button" type="button" class="btn btn-primary"><i class="icon-plus"></i></button>
+            </div>
+            <ul id="note-suggestions" class="suggestions"></ul>
+            <ul id="category-options" class="suggestions category">
+              <li class="suggestion progress" data-category="progress"><i class="icon-flag"></i></li>
+              <li class="suggestion food" data-category="food"><i class="icon-tint"></i></li>
+              <li class="suggestion toilet" data-category="toilet"><i class="icon-leaf"></i></li>
+              <li class="suggestion sleep" data-category="sleep"><i class="icon-picture"></i></li>
+              <li class="suggestion sick" data-category="sick"><i class="icon-briefcase"></i></li>
+            </ul>
+            <div class="item-input-details">
+              <input type="radio" name="category" />
+            </div>
+            <div id="input-background"></div>
+          </form>
