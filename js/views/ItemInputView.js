@@ -14,7 +14,9 @@ define([
     initialize: function(options) {
       this.app = options.app;
       this.collection = new SuggestionCollection();
-      
+      this.allSuggestions = new SuggestionCollection();
+     
+      this.bindTo(this.app.itemCollection, 'reset', this.setSuggestions, this); 
       this.bindTo(this.collection, 'change', this.render);
       this.bindTo(vent, 'suggestion:choose', this.chooseSuggestion, this);
     },
@@ -31,15 +33,26 @@ define([
       this.$el.removeClass('inactive');
       this.updateSuggestions();
     },
+    setSuggestions: function() {
+      var allSuggestions = this.allSuggestions;
+      allSuggestions.reset();
+      
+      this.app.itemCollection.chain().groupBy(function(item) {
+        return item.get('note').toLowerCase();
+      }).sortBy(function(items) {
+        return - items.length;
+      }).map(function(items) {
+        return _.first(items);
+      }).each(function(item) { allSuggestions.add(item); });
+    },
     updateSuggestions: function() {
       var userInput = this.$('input[name=note]').val().toLowerCase();
       var collection = this.collection;
       collection.reset();
-      this.app.itemCollection.chain().filter(function(item) {
+
+      this.allSuggestions.chain().filter(function(item) {
         return item.get('note').toLowerCase().indexOf(userInput) !== -1;
-      }).uniq(function(item) {
-        return item.get('note');
-      }).each(function(item) { collection.add(item); });
+      }).first(10).each(function(item) { collection.add(item); });
     },
     hideSuggestions: function() {
       this.collection.reset();
