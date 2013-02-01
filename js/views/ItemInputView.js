@@ -5,8 +5,9 @@ define([
   '../models/ItemModel',
   '../collections/SuggestionCollection',
   '../views/SuggestionView',
-  'text!templates/ItemInput.html'
-], function (vent, Backbone, Marionette, ItemModel, SuggestionCollection, SuggestionView, ItemInputTemplate) {
+  'text!templates/ItemInput.html',
+  'text!templates/Loader.html'
+], function (vent, Backbone, Marionette, ItemModel, SuggestionCollection, SuggestionView, ItemInputTemplate, LoaderTemplate) {
   return Backbone.Marionette.CompositeView.extend({
     template: ItemInputTemplate,
     className: 'inactive',
@@ -91,6 +92,9 @@ define([
     },
     saveNewItem: function(e) {
       e.preventDefault();
+
+      // Prevent double-saving and indicate activity.
+      this.$('#save-button').unbind('click').removeClass('btn-primary').html(LoaderTemplate);
 
       var item = new ItemModel();
 
