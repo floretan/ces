@@ -51,7 +51,7 @@ body {
 .category-sleep {
 
 }
-.category-sick {
+.category-health {
   background: #900;
 }
 
@@ -67,7 +67,7 @@ body {
 .btn-sleep, .btn-sleep.active {
 
 }
-.btn-sick, .btn-sick.active {
+.btn-health, .btn-health.active {
   color: #900;
 }
 
@@ -153,7 +153,7 @@ body {
 .suggestion.food {
   border-left-color: #090;
 }
-.suggestion.sick {
+.suggestion.health {
   border-left-color: #900;
 }
 
