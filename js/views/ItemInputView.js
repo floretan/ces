@@ -37,7 +37,9 @@ define([
       var allSuggestions = this.allSuggestions;
       allSuggestions.reset();
       
-      this.app.itemCollection.chain().groupBy(function(item) {
+      this.app.itemCollection.chain().filter(function(item) {
+        return !_.isEmpty(item.get('note'));
+      }).groupBy(function(item) {
         return item.get('note').toLowerCase();
       }).sortBy(function(items) {
         return - items.length;
