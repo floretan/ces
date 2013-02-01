@@ -11,7 +11,7 @@ require.config( {
     "backbone": "lib/backbone",
     "marionette": "lib/backbone.marionette",
     "localStorage": "lib/backbone.localStorage-min",
-    "bootstrap": "lib/bootstrap",
+    "bootstrap": "lib/bootstrap.min",
     "moment": "lib/moment.min"
   },
 
