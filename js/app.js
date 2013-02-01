@@ -33,7 +33,7 @@ function(vent, Backbone, Marionette, ItemCollection, LogView, ToolbarView, Login
     // Add the log view.
     app.logRegion.show(new LogView({collection: app.itemCollection}));
 
-    app.itemCollection.fetch();
+    app.itemCollection.fetch({ cache: true, expires: false});
 
     $('body').bind('ajaxError', function(event, XMLHttpRequest, ajaxOptions) {
       if (XMLHttpRequest.status === 401) {

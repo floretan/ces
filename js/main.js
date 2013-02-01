@@ -10,7 +10,7 @@ require.config( {
     'text': 'lib/text',
     "backbone": "lib/backbone",
     "marionette": "lib/backbone.marionette",
-    "localStorage": "lib/backbone.localStorage-min",
+    "fetchCache": "lib/backbone.fetch-cache.min",
     "bootstrap": "lib/bootstrap.min",
     "moment": "lib/moment.min"
   },
@@ -21,9 +21,6 @@ require.config( {
     'backbone': {
       'deps': [ 'underscore', 'jquery' ],
       'exports': 'Backbone'  //attaches 'Backbone' to the window object
-    },
-    "localStorage": {
-      "deps": [ "backbone"]
     },
     'bootstrap': {
       'deps': ['jquery']
