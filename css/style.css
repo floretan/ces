@@ -5,6 +5,9 @@
 body {
   margin: 40px 0;
 }
+.table td {
+  padding: 8px 0;
+}
 .brand {
   font-family: Handlee, Helvetica, sans-serif;
 }
