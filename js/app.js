@@ -31,7 +31,7 @@ function(vent, Backbone, Marionette, ItemCollection, LogView, ToolbarView, Login
     app.itemInputRegion.show(new ItemInputView({app: app}));
 
     // Add the log view.
-    app.logRegion.show(new LogView({collection: app.itemCollection}));
+    app.logRegion.show(new LogView({app: app}));
 
     app.itemCollection.fetch({ cache: true, expires: false});
 

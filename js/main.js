@@ -12,7 +12,8 @@ require.config( {
     "marionette": "lib/backbone.marionette",
     "fetchCache": "lib/backbone.fetch-cache.min",
     "bootstrap": "lib/bootstrap.min",
-    "moment": "lib/moment.min"
+    "moment": "lib/moment.min",
+    "collectionSubset": "lib/backbone.collectionsubset.min"
   },
 
   // Sets the configuration for your third party scripts that are not AMD compatible
@@ -24,6 +25,9 @@ require.config( {
     },
     'bootstrap': {
       'deps': ['jquery']
+    },
+    'collectionSubset': {
+      'deps': ['backbone']
     }
   }, // end Shim Configuration
   deps: ['bootstrap']
