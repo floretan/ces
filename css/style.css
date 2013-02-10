@@ -141,7 +141,7 @@ body {
 }
 .suggestion {
   display: block;
-  line-height: 30px;
+  line-height: 40px;
   background: #fff;
   border-bottom: solid 1px #ddd;
   padding: 5px 1em;
