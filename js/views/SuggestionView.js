@@ -13,9 +13,15 @@ define([
       this.$el.addClass(this.model.get('category'));
     },
     events: {
-      'click': 'choose',
+      'click': 'copy',
+      'click button': 'choose',
     },
-    choose: function() {
+    copy: function(e) {
+      e.preventDefault();
+      vent.trigger('suggestion:copy', this.model);
+    },
+    choose: function(e) {
+      e.preventDefault();
       vent.trigger('suggestion:choose', this.model);
     }
   });

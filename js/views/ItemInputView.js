@@ -19,6 +19,7 @@ define([
      
       this.bindTo(this.app.itemCollection, 'reset', this.setSuggestions, this); 
       this.bindTo(this.collection, 'change', this.render);
+      this.bindTo(vent, 'suggestion:copy', this.copySuggestion, this);
       this.bindTo(vent, 'suggestion:choose', this.chooseSuggestion, this);
     },
     events: {
@@ -63,10 +64,14 @@ define([
     hideForm: function() {
       this.$el.addClass('inactive');
     },
-    chooseSuggestion: function(item) {
+    copySuggestion: function(item) {
       this.$('input[name=note]').val(item.get('note'));
       this.chooseCategory(item.get('category'));
       this.hideSuggestions();
+    },
+    chooseSuggestion: function(item) {
+      this.copySuggestion(item);
+      this.saveNewItem();
     },
     toggleCategories: function() {
       this.$('#category-options').toggle();
@@ -91,7 +96,9 @@ define([
       collectionView.$("#note-suggestions").append(itemView.el);
     },
     saveNewItem: function(e) {
-      e.preventDefault();
+      if (!_.isUndefined(e)) {
+        e.preventDefault();
+      }
 
       // Prevent double-saving and indicate activity.
       this.$('#save-button').unbind('click').removeClass('btn-primary').html(LoaderTemplate);
